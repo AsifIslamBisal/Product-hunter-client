@@ -4,21 +4,21 @@ const slides = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1920&q=80",
+      "",
     heading: "Discover the Best Tech Products",
     subtext: "Curated by the community, for the community.",
   },
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1920&q=80",
+      "",
     heading: "Innovate, Launch, Inspire",
     subtext: "Showcase your startup to the world.",
   },
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+      "",
     heading: "Join a Passionate Community",
     subtext: "Discover new tools every day.",
   },
