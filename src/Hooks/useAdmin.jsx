@@ -3,20 +3,20 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 const useAdmin = () => {
-  const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
 
-  const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
-    queryKey: [user?._id, 'isAdmin'],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/users/admin/${user._id}`);
-      console.log(res.data);
-      return res.data?.role === 'admin'; // ধরলাম backend এ role আছে
-    },
-    enabled: !!user?._id // user._id না থাকলে request যাবে না
-  });
+    const { data: isAdmin, isPending: isAdminLoading } = useQuery({
+        queryKey: [user?.email, 'isAdmin'],
+        // enabled: !!user?.email, // ✅ ensures email exists before API call
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/admin/${user.email}`);
+            console.log("Admin check result:", res.data);
+            return res.data?.admin;
+        }
+    });
 
-  return [isAdmin, isAdminLoading];
+    return [isAdmin , isAdminLoading]; // ✅ fallback false if undefined
 };
-
+// ?? false,
 export default useAdmin;

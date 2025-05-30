@@ -14,29 +14,39 @@ const ProductDetails = () => {
     axiosPublic.get(`/products/${id}`)
       .then(res => {
         setProduct(res.data);
-        setReviews(res.data.reviews || []);
       })
       .catch(err => {
         console.error('Failed to load product:', err);
       });
   };
 
+  const fetchReviews = () => {
+    axiosPublic.get(`/reviews/${id}`)
+      .then(res => {
+        setReviews(res.data || []);
+      })
+      .catch(err => {
+        console.error('Failed to load reviews:', err);
+      });
+  };
+
   useEffect(() => {
     fetchProduct();
+    fetchReviews();
   }, [axiosPublic, id]);
 
   const handleUpvote = () => {
     axiosPublic.patch(`/products/upvote/${id}`)
       .then(res => {
-        if (res.data.modifiedCount > 0) {
+        if (res.data.modifiedCount > 0 || res.data.acknowledged) {
           Swal.fire({
             icon: 'success',
             title: 'Thank You!',
-            text: 'You have voted।',
+            text: 'You have voted.',
             timer: 2000,
             showConfirmButton: false,
           });
-          fetchProduct();
+          fetchProduct(); // শুধু product আপডেট
         }
       });
   };
@@ -47,7 +57,7 @@ const ProductDetails = () => {
 
     axiosPublic.post(`/reviews/${id}`, { review })
       .then(res => {
-        if (res.data.insertedId || res.data.modifiedCount > 0) {
+        if (res.data.insertedId || res.data.modifiedCount > 0 || res.data.acknowledged) {
           Swal.fire({
             icon: 'success',
             title: 'Review added!',
@@ -55,7 +65,7 @@ const ProductDetails = () => {
             showConfirmButton: false,
           });
           setReview('');
-          fetchProduct();
+          fetchReviews(); // শুধু reviews আপডেট
         }
       });
   };
@@ -138,7 +148,7 @@ const ProductDetails = () => {
             {reviews.length > 0 ? (
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 {reviews.map((rev, idx) => (
-                  <li key={idx}>{rev}</li>
+                  <li key={idx}>{rev.review || rev}</li>
                 ))}
               </ul>
             ) : (

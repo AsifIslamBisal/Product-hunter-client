@@ -5,15 +5,14 @@ import { NavLink, Outlet } from "react-router-dom";
 
 import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
-import { useContext } from "react";
-import { authContext } from "../Provider/AuthProvider";
+
 
 
  
 const Dashboard = () => {
     const [cart] = useCart()
     const [isAdmin] = useAdmin();
-    const user = useContext(authContext);
+    
     // TODO: get inAdmin value from the database
     
     return (

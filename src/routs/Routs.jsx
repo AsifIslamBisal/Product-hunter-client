@@ -13,6 +13,8 @@ import ProductDetails from "../Pages/Products/ProductDetails";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AdminView/Allusers";
+import AdminRoute from "./AdminRoute";
+import AllReviews from "../Pages/Dashboard/AdminView/AllReviews";
 
 
 export const router = createBrowserRouter([
@@ -53,8 +55,12 @@ export const router = createBrowserRouter([
         element: <MyProfile></MyProfile>,
       },
       {
-        path: '/dashboard/Users',
-        element: <AllUsers></AllUsers>
+        path: 'Users',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path:'reviews',
+        element: <AdminRoute><AllReviews></AllReviews></AdminRoute>
       }
     ]
   }

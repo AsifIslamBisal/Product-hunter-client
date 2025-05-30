@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from './Payment/CheckoutFrom';
-import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
-const stripePromise = loadStripe('your_publishable_key_here');
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { CheckmarkIcon } from 'react-hot-toast';
+import CheckoutForm from './Payment/CheckoutFrom';
+
+const stripePromise = loadStripe('your_publishable_key_here'); // তোমার stripe পাবলিশেবল কী বসাও
 
 const MyProfile = () => {
   const axiosPublic = useAxiosPublic();
@@ -13,21 +15,23 @@ const MyProfile = () => {
 
   // ইউজার ডেটা লোড করা
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await axiosPublic.get('/users/me'); // এই এন্ডপয়েন্ট তোমার সার্ভারে থাকতে হবে
-        setUser(res.data);
-      } catch (error) {
-        console.error('User load error:', error);
-      }
-    };
+  const fetchUser = async () => {
+    try {
+      const res = await axiosPublic.get('/users/me');
+      setUser(res.data);
+    } catch (error) {
+      console.error('User load error:', error);
+    }
+  };
 
-    fetchUser();
-  }, [axiosPublic]);
+  fetchUser();
+}, []);
 
+  // পেমেন্ট সফল হলে কলব্যাক
   const handlePaymentSuccess = () => {
+    // লোকাল ইউজার অবজেক্টে isSubscribed আপডেট করো
     setUser((prev) => ({ ...prev, isSubscribed: true }));
-    setShowModal(false);
+    setShowModal(false); // মডাল বন্ধ করো
   };
 
   if (!user) {
@@ -57,11 +61,12 @@ const MyProfile = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg w-[400px] relative">
             <h2 className="text-xl font-bold mb-4">Complete Payment</h2>
             <Elements stripe={stripePromise}>
-              <CheckoutForm amount={5} onPaymentSuccess={handlePaymentSuccess} />
+              <CheckoutForm amount={5} onPaymentSuccess={handlePaymentSuccess} ></CheckoutForm>
             </Elements>
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              aria-label="Close modal"
             >
               ✖
             </button>

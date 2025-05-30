@@ -44,27 +44,27 @@ const AuthProvider = ({children}) => {
             setUser(currentUser);
            if (currentUser) {
             // get token and store client
-            // const userInfo = {email: currentUser.email};
-            // axiosPublic.post('/jwt', userInfo)
-            // .then(res => {
-            //     if (res.data.token) {
-            //         localStorage.setItem('access-token', res.data.token);
-            //         setLoading(false);
-            //     }
-            // })
+            const userInfo = {email: currentUser.email};
+            axiosPublic.post('/jwt', userInfo)
+            .then(res => {
+                if (res.data.token) {
+                    localStorage.setItem('access-token', res.data.token);
+                    setLoading(false);
+                }
+            })
            }
-        //    else{
-        //     // do something
-        //     localStorage.removeItem('access-token');
+           else{
+            // do something
+            localStorage.removeItem('access-token');
              setLoading(false);
-        //    }
+           }
            
         });
         return () =>{
             return unsubscribe();
         }
     }, [axiosPublic])
-//  eta opoer 3braket er moddhe dite hobe = axiosPublic
+    
     const authInfo = {
         user,
         loading,
