@@ -1,20 +1,16 @@
 import {  createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
-// import { app } from "../firebase/firebase.config";
-// import useAxiosPublic from "../Hooks/useAxiosPublic";
-
-// import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const authContext = createContext(null)
     const auth = getAuth(app)
-// const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
-    // const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
 
 
     const createUser = (email, password) => {
@@ -67,7 +63,7 @@ const AuthProvider = ({children}) => {
         return () =>{
             return unsubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 //  eta opoer 3braket er moddhe dite hobe = axiosPublic
     const authInfo = {
         user,

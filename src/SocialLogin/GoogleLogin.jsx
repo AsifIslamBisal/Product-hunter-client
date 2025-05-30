@@ -1,10 +1,8 @@
-import React from 'react';
-import { FaGoogle } from 'react-icons/fa6';
-
 
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
+import { FcGoogle } from 'react-icons/fc';
 
 const GoogleLogin = () => {
      const { googleSignIn } = useAuth();
@@ -28,11 +26,11 @@ const GoogleLogin = () => {
     }
     return (
         <div className='p-8'>
-             <div className="divider"></div>
+             <div className="divider">Or</div>
             <div>
-                <button onClick={handleGoogleSignIn} className='btn'>
-                    <FaGoogle></FaGoogle>
-                    Google
+                <button onClick={handleGoogleSignIn} className='btn bg-green-300'>
+                    <FcGoogle></FcGoogle>
+                    Sign In with Google
                 </button>
             </div>
         </div>

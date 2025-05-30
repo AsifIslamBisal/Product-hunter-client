@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-
 import Swal from "sweetalert2";
 import { authContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import registerAnimi from '../../assets/lotti/register.json'
+import Lottie from "lottie-react";
 
 
 const SignUp = () => {
@@ -51,13 +52,12 @@ const SignUp = () => {
     return (
          <>
             <Helmet>
-                <title>Crave Craft | Sign Up</title>
+                <title>Product Hunt | Sign Up</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <Lottie animationData={registerAnimi}></Lottie>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -104,7 +104,7 @@ const SignUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p className="px-6"><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p className="px-6"><small>Already have an account <Link to="/login" className="text-blue-600">Login</Link></small></p>
                     </div>
                 </div>
             </div>

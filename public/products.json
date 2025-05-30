@@ -1,0 +1,154 @@
+[
+  {
+    "id": "1",
+    "name": "CodeMate AI",
+    "image": "https://i.ibb.co/fYFpmQfX/Screenshot-2025-05-27-222152.png",
+    "description": "AI-powered coding assistant that helps you write, debug, and refactor code in real-time.",
+    "tags": ["AI Tool", "Developer", "Productivity"],
+    "externalLinks": {
+      "website": "https://codemate.ai",
+      "github": "https://github.com/codemate-ai"
+    }
+  },
+  {
+    "id": "2",
+    "name": "TaskFlow",
+    "image": "https://example.com/images/taskflow.jpg",
+    "description": "A modern web app for managing personal and team tasks with Kanban boards.",
+    "tags": ["Web App", "Productivity", "Teamwork"],
+    "externalLinks": {
+      "website": "https://taskflow.app"
+    }
+  },
+  {
+    "id": "3",
+    "name": "PixelRush",
+    "image": "https://example.com/images/pixelrush.jpg",
+    "description": "Fast-paced multiplayer shooting game with pixel-art design.",
+    "tags": ["Game", "Multiplayer", "Pixel Art"],
+    "externalLinks": {
+      "website": "https://pixelrush.io"
+    }
+  },
+  {
+    "id": "4",
+    "name": "LangBridge",
+    "image": "https://example.com/images/langbridge.jpg",
+    "description": "Language learning mobile app with AI pronunciation correction and real-life dialogue practice.",
+    "tags": ["Mobile App", "Education", "AI Tool"],
+    "externalLinks": {
+      "website": "https://langbridge.com"
+    }
+  },
+  {
+    "id": "5",
+    "name": "QuickDocs",
+    "image": "https://example.com/images/quickdocs.jpg",
+    "description": "Collaborative documentation platform built for speed and simplicity.",
+    "tags": ["Web App", "Collaboration", "Docs"],
+    "externalLinks": {
+      "website": "https://quickdocs.dev",
+      "github": "https://github.com/quickdocs"
+    }
+  },
+  {
+    "id": "6",
+    "name": "SynthAudio",
+    "image": "https://example.com/images/synthaudio.jpg",
+    "description": "AI-powered tool to generate background music for videos and podcasts.",
+    "tags": ["AI Tool", "Audio", "Content Creation"],
+    "externalLinks": {
+      "website": "https://synthaudio.ai"
+    }
+  },
+  {
+    "id": "7",
+    "name": "TravelMate",
+    "image": "https://example.com/images/travelmate.jpg",
+    "description": "All-in-one mobile app for travel planning, booking, and trip journaling.",
+    "tags": ["Mobile App", "Travel", "Planner"],
+    "externalLinks": {
+      "website": "https://travelmate.app"
+    }
+  },
+  {
+    "id": "8",
+    "name": "MindSpark",
+    "image": "https://example.com/images/mindspark.jpg",
+    "description": "Brain training and cognitive improvement games designed by neuroscientists.",
+    "tags": ["Game", "Education", "Mobile App"],
+    "externalLinks": {
+      "website": "https://mindspark.io"
+    }
+  },
+  {
+    "id": "9",
+    "name": "DevTrackr",
+    "image": "https://example.com/images/devtrackr.jpg",
+    "description": "Project and bug tracking system made for developers and software teams.",
+    "tags": ["Software", "Developer Tool", "Teamwork"],
+    "externalLinks": {
+      "website": "https://devtrackr.com"
+    }
+  },
+  {
+    "id": "10",
+    "name": "FitPulse",
+    "image": "https://example.com/images/fitpulse.jpg",
+    "description": "Health and fitness tracking mobile app with AI-powered meal planning.",
+    "tags": ["Mobile App", "Health", "AI Tool"],
+    "externalLinks": {
+      "website": "https://fitpulse.app"
+    }
+  },
+  {
+    "id": "11",
+    "name": "NoteNest",
+    "image": "https://example.com/images/notenest.jpg",
+    "description": "Minimalist note-taking app that syncs across all devices instantly.",
+    "tags": ["Web App", "Note Taking", "Productivity"],
+    "externalLinks": {
+      "website": "https://notenest.io"
+    }
+  },
+  {
+    "id": "12",
+    "name": "QuizForge",
+    "image": "https://example.com/images/quizforge.jpg",
+    "description": "Create, share, and play quizzes with friends in real-time multiplayer mode.",
+    "tags": ["Game", "Education", "Web App"],
+    "externalLinks": {
+      "website": "https://quizforge.com"
+    }
+  },
+  {
+    "id": "13",
+    "name": "DesignBuddy",
+    "image": "https://example.com/images/designbuddy.jpg",
+    "description": "AI design assistant that helps generate color schemes, layouts, and UI suggestions.",
+    "tags": ["AI Tool", "Design", "Developer"],
+    "externalLinks": {
+      "website": "https://designbuddy.ai"
+    }
+  },
+  {
+    "id": "14",
+    "name": "BudgetBee",
+    "image": "https://example.com/images/budgetbee.jpg",
+    "description": "Personal budgeting mobile app with smart recommendations and spend tracking.",
+    "tags": ["Mobile App", "Finance", "Productivity"],
+    "externalLinks": {
+      "website": "https://budgetbee.app"
+    }
+  },
+  {
+    "id": "15",
+    "name": "RemoteBoard",
+    "image": "https://example.com/images/remoteboard.jpg",
+    "description": "Virtual whiteboard for online collaboration and remote brainstorming sessions.",
+    "tags": ["Web App", "Collaboration", "Remote Work"],
+    "externalLinks": {
+      "website": "https://remoteboard.io"
+    }
+  }
+] 

@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
-
+import slider1 from"../../assets/Banner/slider1.png"
+import slider2 from"../../assets/Banner/slider2.png"
+import slider3 from"../../assets/Banner/slider3.png"
 const slides = [
   {
     id: 1,
-    image:
-      "",
+    image: slider1,
     heading: "Discover the Best Tech Products",
     subtext: "Curated by the community, for the community.",
   },
   {
     id: 2,
-    image:
-      "",
+    image: slider2,
     heading: "Innovate, Launch, Inspire",
     subtext: "Showcase your startup to the world.",
   },
   {
     id: 3,
-    image:
-      "",
+    image: slider3,
     heading: "Join a Passionate Community",
     subtext: "Discover new tools every day.",
   },

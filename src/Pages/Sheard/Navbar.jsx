@@ -19,8 +19,8 @@ const Navbar = () => {
   const navOption = (
     <>
       <li><Link to="/">Home</Link></li>
-      <li><Link to="/menu">Products</Link></li>
-      <li><Link to="/order/salad">About</Link></li>
+      <li><Link to="/products">Products</Link></li>
+      <li><Link to="/about">About</Link></li>
 
       {/* {
         user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
@@ -89,7 +89,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow bg-black"
+              className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow bg-gray-900"
             >
               <li><span className="justify-between">{user.displayName}</span></li>
               <li><Link to="/dashboard">Dashboard</Link></li>

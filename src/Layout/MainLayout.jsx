@@ -6,7 +6,7 @@ import Footer from '../Pages/Sheard/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <div className='pb-20 bg-black'>
+            <div className='pb-16 bg-black'>
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>
