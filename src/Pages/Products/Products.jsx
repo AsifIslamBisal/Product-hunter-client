@@ -5,15 +5,18 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 const Products = () => {
   const axiosPublic = useAxiosPublic();
   const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   useEffect(() => {
-    axiosPublic.get('/products')
+    axiosPublic
+      .get(`/products?search=${searchTerm}`)
       .then(res => {
         setProducts(res.data);
+        setCurrentPage(1); // সার্চ করলে প্রথম পেইজে যাও
       });
-  }, [axiosPublic]);
+  }, [searchTerm, axiosPublic]);
 
   const totalPages = Math.ceil(products.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -23,6 +26,19 @@ const Products = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">All Products</h1>
+
+      {/* 🔍 Search Bar */}
+      <div className="mb-8 flex justify-center">
+        <input
+          type="text"
+          placeholder="Search by tag..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      {/* 🖼 Product Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentItems.map(product => (
           <Link to={`/product/${product._id}`} key={product._id} className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 p-4">
@@ -38,7 +54,7 @@ const Products = () => {
         ))}
       </div>
 
-      {/* Pagination Buttons */}
+      {/* 🔢 Pagination */}
       <div className="flex justify-center mt-8 space-x-2">
         <button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}

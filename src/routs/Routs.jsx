@@ -10,11 +10,16 @@ import Products from "../Pages/Products/Products";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../Layout/Dashboard";
 import ProductDetails from "../Pages/Products/ProductDetails";
-import MyProfile from "../Pages/Dashboard/MyProfile";
+import MyProfile from "../Pages/Dashboard/AdminView/MyProfile";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AdminView/Allusers";
 import AdminRoute from "./AdminRoute";
 import AllReviews from "../Pages/Dashboard/AdminView/AllReviews";
+import DashboardInfo from "../Pages/Dashboard/AdminView/DashboardInfo";
+import UserProfile from "../Pages/Dashboard/UserView/UserProfile";
+import AddProduct from "../Pages/Dashboard/UserView/AddProduct";
+import MyProduct from "../Pages/Dashboard/UserView/MyProduct";
+import UserProducts from "../Pages/Dashboard/AdminView/UserProducts";
 
 
 export const router = createBrowserRouter([
@@ -55,13 +60,33 @@ export const router = createBrowserRouter([
         element: <MyProfile></MyProfile>,
       },
       {
+        path: 'dashboardInfo',
+        errorElement: <AdminRoute><DashboardInfo></DashboardInfo></AdminRoute>
+      },
+      {
         path: 'Users',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path:'reviews',
         element: <AdminRoute><AllReviews></AllReviews></AdminRoute>
-      }
+      },
+      {
+        path: 'Profile',
+        element: <UserProfile></UserProfile>
+      },
+      {
+        path: 'addProduct',
+        element: <AddProduct></AddProduct>
+      },
+      {
+        path: 'MyProduct',
+        element: <MyProduct></MyProduct>
+      },
+      {
+        path: 'userProducts',
+        element: <AdminRoute><UserProducts></UserProducts></AdminRoute>
+      },
     ]
   }
 ]);

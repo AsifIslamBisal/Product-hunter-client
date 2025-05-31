@@ -46,7 +46,7 @@ const ProductDetails = () => {
             timer: 2000,
             showConfirmButton: false,
           });
-          fetchProduct(); // শুধু product আপডেট
+          fetchProduct(); 
         }
       });
   };
@@ -65,7 +65,7 @@ const ProductDetails = () => {
             showConfirmButton: false,
           });
           setReview('');
-          fetchReviews(); // শুধু reviews আপডেট
+          fetchReviews(); 
         }
       });
   };
