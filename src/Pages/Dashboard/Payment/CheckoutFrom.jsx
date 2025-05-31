@@ -19,7 +19,7 @@ const CheckoutFrom = () => {
 
   const membershipFee = 9.99;
 
-  // সাবস্ক্রিপশন স্ট্যাটাস যাচাই
+  
   useEffect(() => {
     if (user?.email) {
       axiosSecure.get(`/subscription-status/${user.email}`)
@@ -31,7 +31,7 @@ const CheckoutFrom = () => {
     }
   }, [user, axiosSecure]);
 
-  // client secret তৈরি
+  
   useEffect(() => {
     axiosSecure.post('/create-payment', { price: membershipFee })
       .then(res => {
@@ -96,7 +96,7 @@ const CheckoutFrom = () => {
     }
   };
 
-  if (loading) return <p>লোড হচ্ছে...</p>;
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
 
   return (
     <div>

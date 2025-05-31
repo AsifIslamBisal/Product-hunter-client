@@ -20,6 +20,7 @@ import UserProfile from "../Pages/Dashboard/UserView/UserProfile";
 import AddProduct from "../Pages/Dashboard/UserView/AddProduct";
 import MyProduct from "../Pages/Dashboard/UserView/MyProduct";
 import UserProducts from "../Pages/Dashboard/AdminView/UserProducts";
+import About from "../Pages/About/About";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
         {
             path: 'product/:id',
             element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+        },
+        {
+          path:'about',
+          element:<About></About>
         },
         {
             path: 'login',

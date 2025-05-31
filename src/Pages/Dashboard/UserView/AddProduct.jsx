@@ -75,7 +75,7 @@ const AddProduct = () => {
           placeholder="Product description"
         />
 
-        {/* Owner Info - Disabled */}
+        
         <fieldset disabled className="mb-4 bg-gray-100 p-3 rounded">
           <legend className="font-semibold mb-2">Owner Info</legend>
           <input

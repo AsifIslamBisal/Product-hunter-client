@@ -16,6 +16,7 @@ const ProductDetails = () => {
         setProduct(res.data);
       })
       .catch(err => {
+        <span className="loading loading-dots loading-lg"></span>
         console.error('Failed to load product:', err);
       });
   };
@@ -26,6 +27,7 @@ const ProductDetails = () => {
         setReviews(res.data || []);
       })
       .catch(err => {
+        <span className="loading loading-dots loading-lg"></span>
         console.error('Failed to load reviews:', err);
       });
   };

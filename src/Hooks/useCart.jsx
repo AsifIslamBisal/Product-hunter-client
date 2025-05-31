@@ -11,7 +11,7 @@ const useCart = () => {
         enabled: !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get('/users/me');
-            // ধরছি ইউজারের ডাটার ভিতরে cart আছে
+            
             return res.data.cart || [];
         }
     });

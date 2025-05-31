@@ -14,7 +14,7 @@ const Products = () => {
       .get(`/products?search=${searchTerm}`)
       .then(res => {
         setProducts(res.data);
-        setCurrentPage(1); // সার্চ করলে প্রথম পেইজে যাও
+        setCurrentPage(1); 
       });
   }, [searchTerm, axiosPublic]);
 
@@ -27,7 +27,7 @@ const Products = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">All Products</h1>
 
-      {/* 🔍 Search Bar */}
+      
       <div className="mb-8 flex justify-center">
         <input
           type="text"
@@ -38,7 +38,7 @@ const Products = () => {
         />
       </div>
 
-      {/* 🖼 Product Cards */}
+      {/*  Product Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentItems.map(product => (
           <Link to={`/product/${product._id}`} key={product._id} className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 p-4">
@@ -54,7 +54,7 @@ const Products = () => {
         ))}
       </div>
 
-      {/* 🔢 Pagination */}
+      {/*  Pagination */}
       <div className="flex justify-center mt-8 space-x-2">
         <button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}

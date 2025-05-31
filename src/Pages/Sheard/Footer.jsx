@@ -5,13 +5,13 @@ const Footer = () => {
         <div>
             <footer className="bg-gray-900 text-gray-300 py-10 px-4">              
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-    {/* <!-- Brand --> */}
+    
     <div>
       <h1 className="text-2xl font-bold text-white mb-3">ProductVerse</h1>
       <p className="text-sm">Your one-stop platform for amazing tech products. Submit, upvote, and discover the future.</p>
     </div>
 
-    {/* <!-- Products --> */}
+    
     <div>
       <h3 className="text-lg font-semibold text-white mb-2">Products</h3>
       <ul className="space-y-1">
@@ -21,7 +21,7 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* <!-- Company --> */}
+    
     <div>
       <h3 className="text-lg font-semibold text-white mb-2">Company</h3>
       <ul className="space-y-1">
@@ -31,7 +31,7 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* <!-- Support --> */}
+    
     <div>
       <h3 className="text-lg font-semibold text-white mb-2">Support</h3>
       <ul className="space-y-1">
@@ -42,7 +42,7 @@ const Footer = () => {
     </div>
   </div>
 
-  {/* <!-- Bottom bar --> */}
+  
   <div className="mt-10 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
     <p className="text-sm">&copy; 2025 ProductVerse. All rights reserved.</p>
     <div className="flex space-x-4 mt-4 md:mt-0">

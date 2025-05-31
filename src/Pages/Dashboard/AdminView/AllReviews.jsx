@@ -8,11 +8,12 @@ const AllReviews = () => {
   useEffect(() => {
     axiosPublic.get('/reviews')
       .then(res => {
-        console.log('Fetched Reviews:', res.data);
+        // console.log('Fetched Reviews:', res.data);
         setReviews(Array.isArray(res.data) ? res.data : []);
       })
       .catch(error => {
-        console.error('Error fetching reviews:', error);
+        <span className="loading loading-dots loading-lg"></span>
+        // console.error('Error fetching reviews:', error);
       });
   }, [axiosPublic]);
 
@@ -45,9 +46,9 @@ const AllReviews = () => {
               reviews.map((review, index) => (
                 <tr key={review._id} className="text-center">
                   <td className="px-4 py-2 border">{index + 1}</td>
-                  {/* যদি review.comment না থাকে, তাহলে review.review দেখাবে */}
+                  
                   <td className="px-4 py-2 border">{review.comment || review.review || 'No comment'}</td>
-                  {/* যদি ইউজার ডাটা না থাকে, তাহলে খালি দেখাবে */}
+                  
                   <td className="px-4 py-2 border">{review.user || 'Anonymous'}</td>
                   <td className="px-4 py-2 border">
                     <button

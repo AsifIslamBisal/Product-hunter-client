@@ -5,6 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
+import { CgProfile } from "react-icons/cg";
 
 
 
@@ -13,7 +14,6 @@ const Dashboard = () => {
     const [cart] = useCart()
     const [isAdmin] = useAdmin();
     
-    // TODO: get inAdmin value from the database
     
     return (
         <div className="flex">
@@ -29,22 +29,24 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <NavLink to="/dashboard/myProfile">
-                        <FaUtensils></FaUtensils>
+                        <CgProfile></CgProfile>
                         My Profile</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/Users">
-                        <FaList></FaList>
+                        <FaUsers></FaUsers>
+                        
                         Manage users</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/userProducts">
+                        
                         <FaBook></FaBook>
                         Manage Products</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/reviews">
-                        <FaUsers></FaUsers>
+                        <FaList></FaList>
                         All Reviews</NavLink>
                     </li>
                         </> : <>
@@ -64,16 +66,6 @@ const Dashboard = () => {
                         <FaShoppingCart></FaShoppingCart>
                         My Products  ({cart.length})</NavLink>
                     </li>
-                    {/* <li>
-                        <NavLink to="/dashboard/review">
-                        <FaAd></FaAd>
-                        Add a Review</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/PaymentHistory">
-                        <FaList></FaList>
-                         Real Payment History</NavLink>
-                    </li> */}
                         
                          </>
                     }
@@ -86,12 +78,12 @@ const Dashboard = () => {
                         Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order/salad">
+                        <NavLink to="/products">
                         <RiMenuSearchFill></RiMenuSearchFill>
                         Products</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order/contact">
+                        <NavLink to="/dashboard/about">
                         <FaEnvelope></FaEnvelope>
                         Contact</NavLink>
                     </li>

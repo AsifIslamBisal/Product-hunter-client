@@ -8,12 +8,12 @@ const useProduct = () => {
     const { data: products = [], isPending: loading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await AxiosPublic.get('/products'); // ✅ endpoint ঠিক করা হয়েছে
+            const res = await AxiosPublic.get('/products'); 
             return res.data;
         }
     });
 
-    return [Array.isArray(products) ? products : [], loading, refetch]; // ✅ safe fallback
+    return [Array.isArray(products) ? products : [], loading, refetch]; 
 };
 
 export default useProduct;

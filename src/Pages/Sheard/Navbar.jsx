@@ -22,21 +22,6 @@ const Navbar = () => {
       <li><Link to="/products">Products</Link></li>
       <li><Link to="/about">About</Link></li>
 
-      {/* {
-        user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-      }
-      {
-        user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
-      } */}
-
-      {/* <li>
-        <Link to="/dashboard/cart">
-          <button className="btn">
-            <FaCartShopping className='mr2'></FaCartShopping>
-            <div className="badge badge-secondary">+{cart.length}</div>
-          </button>
-        </Link>
-      </li> */}
     </>
   );
 
