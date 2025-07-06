@@ -8,7 +8,7 @@ const MyProduct = () => {
   useEffect(() => {
     const fetchMyProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/products?email=${user.email}`);
+        const res = await fetch(`https://product-hunt-server-blue.vercel.app/products?email=${user.email}`);
         const data = await res.json();
         setMyProducts(data);
       } catch (error) {
