@@ -5,43 +5,52 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 const Products = () => {
   const axiosPublic = useAxiosPublic();
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   useEffect(() => {
-    axiosPublic
-      .get(`/products?search=${searchTerm}`)
+    axiosPublic.get(`/products`)
       .then(res => {
         setProducts(res.data);
-        setCurrentPage(1); 
+        setCurrentPage(1);
       });
-  }, [searchTerm, axiosPublic]);
+  }, [axiosPublic]);
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  // search filter
+  const filteredProducts = products.filter(p =>
+    p.name.toLowerCase().includes(search.toLowerCase()) ||
+    p.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase()))
+  );
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">All Products</h1>
 
-      
+      {/* Search */}
       <div className="mb-8 flex justify-center">
         <input
           type="text"
-          placeholder="Search by tag..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search by name or tag..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
       </div>
 
-      {/*  Product Cards */}
+      {/* Product Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentItems.map(product => (
-          <Link to={`/product/${product._id}`} key={product._id} className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 p-4">
+          <Link
+            to={`/product/${product._id}`}
+            key={product._id}
+            className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 p-4"
+          >
             <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-xl mb-4" />
             <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
             <p className="text-gray-600 text-sm mb-2">{product.description.slice(0, 100)}...</p>
@@ -54,7 +63,7 @@ const Products = () => {
         ))}
       </div>
 
-      {/*  Pagination */}
+      {/* Pagination */}
       <div className="flex justify-center mt-8 space-x-2">
         <button
           onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
